@@ -13,14 +13,11 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: MainScreen(),
+    return ChangeNotifierProvider(
+      create: (context) => DashboardController(),
+      child: MaterialApp.router(
+        routerConfig: router,
+      ),
     );
-    // return ChangeNotifierProvider(
-    //   create: (context) => DashboardController(),
-    //   child: MaterialApp.router(
-    //     routerConfig: router,
-    //   ),
-    // );
   }
 }

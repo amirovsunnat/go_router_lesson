@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:go_router_darsi/screens/bottom_navbar/cargo_detail.dart';
 
 class CargoesScreen extends StatelessWidget {
   static String path = "/cargoes";
@@ -15,8 +17,12 @@ class CargoesScreen extends StatelessWidget {
         itemBuilder: (context, index) {
           return ListTile(
             title: Text("Indexdagi element: $index"),
-            leading: Icon(
-              Icons.fire_extinguisher,
+            leading: IconButton(
+              onPressed: () {
+                context.go('${CargoDetail.path}/$index',
+                    extra: {"name": "Sunnat", "surname": "Amirov"});
+              },
+              icon: Icon(Icons.fire_extinguisher),
               color: Colors.red,
             ),
           );
